@@ -1,8 +1,6 @@
 ======================================================
-# Will deploy a node which will have the pod within it. 
+# Definite variables
 ======================================================
-# Define variables
-==================
 
 # Cluster variables
 $REGION = "us-east-1"
