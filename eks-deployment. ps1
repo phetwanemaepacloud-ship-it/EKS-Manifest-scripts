@@ -7,21 +7,20 @@ $REGION = "us-east-1"
 $CLUSTER_NAME = "dev-app-eks-cluster" 
 $AWS ACCOUNT_ID = "____"
 
-#Namespace
+# Namespace
 $NAMESPACE = "dev-nest-eks-namespace"
 
 # Service account variables
 $SERVICE_ACCOUNT_NAME = "dev-app-eks-service-account" 
 $SECRET_MANAGER_ACCESS_POLICY_NAME = "secrets-manager-access-policy"
 
-#Manifest file names
+# Manifest file names
 $AUTH_CONFIG_FILE_NAME = "aws-auth-patch.yaml"
 $SECRET_PROVIDER_CLASS_FILE_NAME = "secret-provider-class.yaml" SDEPLOYMENT_FILE_NAME = "deployment.yaml"
 $SERVICE_FILE_NAME = "service.yaml"
 
 ======================================================
 #Verify required tools are installed
-
 ======================================================
 
 # Verify kubectl is installed
@@ -54,7 +53,7 @@ kubectl create namespace $NAMESPACE
 # Set namespace for all subsequent kubectl commands 
 kubectl config set-context --current--namespace=$NAMESPACE
 
-#Verify the namespace
+# Verify the namespace
 kubectl config view --minify | Select-String namespace:"
 
 ======================================================
@@ -67,10 +66,10 @@ helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets
 # Update Helm repositories
 helm repo update
 
-#Install the Secrets Store CSI Driver
+# Install the Secrets Store CSI Driver
 helm install csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver --namespace kube-system
 
-#Verify that Secrets Store CSI Oriver has started
+# Verify that Secrets Store CSI Oriver has started
 kubectl --namespace=kube-system get pods -1 "app-secrets-store-csi-driver"
 
 # Install AWS provider for Secrets Store CSI Driver
