@@ -88,17 +88,19 @@ eksctl utils associate-iam-oidc-provider --region-$REGION --cluster-$CLUSTER_NAM
 # Create IAM service account for Secrets Manager access
 # ======================================================
 
-
 # Create IAM service account with Secrets Manager access policy
 eksctl create iamserviceaccount
---name $SERVICE_ACCOUNT_NAME --namespace $NAMESPACE
---region $REGION
---cluster SCLUSTER_NAME
---attach-policy-arn "arn:aws:iam::$($AWS_ACCOUNT_ID): policy/$($SECRET_MANAGER_ACCESS_POLICY_NAME)"
---approve
---override-existing-serviceaccounts
-# Apply Kubernetes manifests
+    --name $SERVICE_ACCOUNT_NAME 
+    --namespace $NAMESPACE
+    --region $REGION
+    --cluster SCLUSTER_NAME
+    --attach-policy-arn "arn:aws:iam::$($AWS_ACCOUNT_ID): policy/$($SECRET_MANAGER_ACCESS_POLICY_NAME)"
+    --approve
+    --override-existing-serviceaccounts
 
+======================================================
+# Apply Kubernetes manifests
+======================================================
 
 
 # Apply Kubernetes manifests
