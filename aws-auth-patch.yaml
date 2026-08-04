@@ -1,0 +1,15 @@
+======================================================
+# Gives additional users access to your cluster 
+======================================================
+
+apiVersion: vi
+kind: ConfigMap 
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapusers: |
+    - userarn: arn:aws:iam:: #Update with URI :user/____   # Update as needed with your IAM user ARN
+username: ____     # Update with URI as needed with your desired Kubernetes username 
+  groups:
+    - system: masters # Gives admin access to cluster
