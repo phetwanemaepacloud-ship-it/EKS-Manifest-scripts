@@ -18,7 +18,7 @@ spec:
   ports:
     - name: https
       port: 443
-      targetPort: 80   # Update as needed, must match Deployment metadata.namespace
+      targetPort: 80   # Update as needed, must match Deployment ports.containerPort
       protocol: TCP
  selector:
-   app: nest-app    # Update as needed, must match Deployment ports.containerPort # Update as needed, must match Deployment metadata.labels.app and spec.selector_matchLabels.app
+   app: nest-app    # Update as needed, must match Deployment metadata.labels.app and spec.selector_matchLabels.app
