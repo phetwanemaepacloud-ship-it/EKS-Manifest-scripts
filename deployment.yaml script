@@ -17,7 +17,7 @@ spec:
  template:
    metadata:
      labels:
-       app: nest-app #Must match Service selector.App 
+       app: nest-app    #Must match Service selector.App 
     spec: 
       serviceAccountName: dev-nest-eks-service-account
       volumes:
